@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 
 const ChatMessage = ({ message, isUser }) => {
   return (
@@ -105,7 +104,7 @@ const ChatbotSection = () => {
             <h3 className="text-xl mb-6 text-gray-600">Your Personal Learning Assistant</h3>
             
             <p className="text-gray-600 mb-6">
-              Yukti is Indore's first AI-powered educational assistant, designed to enhance your learning experience at DebugShala. 
+              Yukti is Indore&apos;s first AI-powered educational assistant, designed to enhance your learning experience at DebugShala. 
               Get personalized guidance, instant code reviews, and access to a vast knowledge repository.
             </p>
             

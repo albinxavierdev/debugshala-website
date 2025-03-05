@@ -110,8 +110,8 @@ const PlacementSection = () => {
             <div className="mb-6 md:mb-0 md:mr-8">
               <h3 className="text-2xl font-bold mb-3">Our Placement Record</h3>
               <p className="text-gray-200 mb-4">
-                We've helped hundreds of students land their dream jobs at top tech companies. 
-                Our placement assistance program ensures you're prepared for the interview process.
+                We&apos;ve helped hundreds of students land their dream jobs at top tech companies. 
+                Our placement assistance program ensures you&apos;re prepared for the interview process.
               </p>
               <button className="bg-white text-[var(--primary)] px-6 py-3 rounded-md font-bold hover:bg-opacity-90 transition-all">
                 View All Placements

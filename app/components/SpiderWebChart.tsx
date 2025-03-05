@@ -207,7 +207,6 @@ const SpiderWebChart: React.FC<SpiderWebChartProps> = ({ skills, title, descript
       const originalFont = ctx.font;
       
       ctx.font = smallerFont;
-      const scoreWidth = ctx.measureText(scoreText).width;
       
       ctx.fillStyle = 'rgba(33, 150, 243, 0.9)'; // Blue with transparency
       ctx.fillText(scoreText, x, y + 14);

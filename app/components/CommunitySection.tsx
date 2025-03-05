@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 
 const CommunityPost = ({ image, title, description, date, likes, category }) => {
   return (

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 
 const WorkshopCard = ({ title, date, location, image, attendees, description, isUpcoming = false }) => {
   return (

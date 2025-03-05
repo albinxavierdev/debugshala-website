@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 
 const ExpertCard = ({ name, role, company, image, topics, date }) => {
   return (

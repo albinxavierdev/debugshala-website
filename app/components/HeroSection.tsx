@@ -1,8 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 const HeroSection = () => {
   const [formData, setFormData] = useState({
@@ -21,7 +20,7 @@ const HeroSection = () => {
     }, 4000); // Change every 4 seconds
     
     return () => clearInterval(interval);
-  }, []);
+  }, [typeWriterTexts]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -58,7 +57,7 @@ const HeroSection = () => {
             </h1>
             
             <p className="text-white/90 text-lg mb-8 max-w-lg mx-auto lg:mx-0">
-              Unlock your potential with DebugShala, Indore's premier training and placement institute. 
+              Unlock your potential with DebugShala, Indore&apos;s premier training and placement institute. 
               Elevate your career with our expert-led courses and guaranteed placement assistance.
             </p>
             
@@ -178,6 +177,7 @@ const HeroSection = () => {
                     className="form-input"
                     required
                   >
+                    <option value="">Curious about what we&apos;re offering?</option>
                     <option value="data-science">Data Science</option>
                     <option value="mern-stack">MERN Stack Development</option>
                     <option value="java-web">Java Web Development</option>
