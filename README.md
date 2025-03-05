@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DebugShala Website
+
+## Overview
+
+This is the official website for DebugShala, a premier tech training and placement institute based in Indore. The website showcases the institute's courses, features, and provides an intuitive interface for prospective students to learn about DebugShala and submit inquiries.
+
+## Features
+
+- **Modern Design**: Sleek and responsive design that works across all devices
+- **Interactive UI**: Engaging user interface with modern animations and transitions
+- **Course Information**: Detailed information about all DebugShala courses
+- **Enquiry Form**: Integrated form for prospective students to submit inquiries
+- **Interactive Skills Chart**: Visual representation of the skills taught at DebugShala
+
+## Tech Stack
+
+- **Frontend**: Next.js 15 with React
+- **Styling**: Tailwind CSS
+- **Deployment**: Vercel (recommended)
+
+## Key Sections
+
+1. **Hero Section**: Main landing section with an enquiry form and course highlights
+2. **Courses Section**: Detailed information about available courses
+3. **Skills Assessment**: Interactive spider web chart showing key skills coverage
+4. **Testimonials**: Success stories from past students
+5. **Contact Information**: Ways to get in touch with DebugShala
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 16.x or higher
+- npm or yarn
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/yourusername/debugshala-website.git
+
+# Navigate to the directory
+cd debugshala-website
+
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environment Variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a `.env.local` file in the root directory and add the following:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+NEXT_PUBLIC_API_URL=your_api_url_here
+```
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+The application can be easily deployed to Vercel:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+vercel
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contact
 
-## Deploy on Vercel
+For any inquiries about this website, please contact:
+- Email: contact@debugshala.com
+- Phone: +91 89823 85539
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is proprietary software owned by DebugShala.

@@ -1,26 +1,190 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --primary: #2196F3;
+  --secondary: #26C6DA;
+  --accent: #03A9F4;
+  --dark: #333333;
+  --gray-dark: #666666;
+  --gray-medium: #999999;
+  --gray-light: #EEEEEE;
+  --background: #F5F9FF;
+  --foreground: #333333;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Retain light theme regardless of user preference */
+    --foreground: #333333;
+    --background: #F5F9FF;
   }
 }
 
 body {
-  background: var(--background);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+}
+
+/* Universal gradient background */
+.gradient-bg {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+/* ===== Button Styles ===== */
+@layer components {
+  /* Primary Button - Main CTA */
+  .btn-primary {
+    @apply bg-[var(--primary)] text-white px-6 py-3 rounded-lg font-medium shadow-md
+    hover:brightness-95 transition-all duration-300;
+  }
+  
+  /* Secondary Button - Outlined version on colored backgrounds */
+  .btn-secondary {
+    @apply bg-white text-[var(--primary)] px-6 py-3 rounded-lg font-medium shadow-md
+    hover:brightness-95 transition-all duration-300;
+  }
+  
+  /* Tertiary Button - Less emphasized action */
+  .btn-tertiary {
+    @apply border border-[var(--primary)] text-[var(--primary)] px-6 py-3 rounded-lg font-medium
+    hover:bg-[var(--primary)] hover:text-white transition-all duration-300;
+  }
+  
+  /* Ghost Button - For lowest emphasis, transparent background */
+  .btn-ghost {
+    @apply bg-transparent text-white border border-white/30 px-6 py-3 rounded-lg font-medium
+    hover:bg-white/10 transition-all duration-300;
+  }
+  
+  /* Small variant */
+  .btn-sm {
+    @apply px-4 py-2 text-sm;
+  }
+}
+
+/* ===== Form Styles ===== */
+.form-input {
+  @apply w-full px-4 py-3 rounded-lg border border-[var(--gray-light)] transition-all duration-300
+  focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-[var(--dark)] mb-1;
+}
+
+/* ===== Background Patterns ===== */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* ===== Animations ===== */
+/* Improved typewriter effect */
+.typewriter-effect {
+  overflow: hidden;
+  border-right: 0.15em solid var(--secondary);
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.05em;
+  animation: 
+    typing 3.5s steps(30, end),
+    blink-caret 0.75s step-end infinite;
+  display: inline-block;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--secondary) }
+}
+
+/* Fade-in animation */
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Slide-up animation */
+.slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+  from { 
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ===== Section Styles ===== */
+.section {
+  @apply py-16;
+}
+
+.section-heading {
+  @apply text-3xl md:text-4xl font-bold mb-6 text-center;
+}
+
+.section-subheading {
+  @apply text-center text-[var(--gray-medium)] mb-12 max-w-2xl mx-auto;
+}
+
+/* ===== Card Styles ===== */
+.card {
+  @apply bg-white p-6 rounded-xl shadow-md transition-all duration-300 hover:shadow-lg;
+}
+
+/* Card with hover effect */
+.card-hover {
+  @apply hover:transform hover:scale-105 hover:z-10;
+}
+
+/* Dark styled card */
+.dark-card {
+  background: linear-gradient(145deg, rgba(21, 21, 21, 0.9), rgba(33, 33, 33, 0.9));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  @apply text-white;
+}
+
+/* ===== Typography Helpers ===== */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)];
+}
+
+/* ===== Responsive Design Helpers ===== */
+/* These additional utility classes can help with responsive designs */
+.responsive-container {
+  @apply container mx-auto px-4 md:px-6 lg:px-8;
+}
+
+/* ===== Mobile-specific overrides ===== */
+@media (max-width: 640px) {
+  .btn-primary, .btn-secondary, .btn-tertiary, .btn-ghost {
+    @apply w-full justify-center flex items-center;
+  }
+  
+  .section {
+    @apply py-10;
+  }
+  
+  .section-heading {
+    @apply text-2xl;
+  }
 }
