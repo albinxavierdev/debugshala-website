@@ -12,6 +12,7 @@
   --gray-light: #EEEEEE;
   --background: #F5F9FF;
   --foreground: #333333;
+ 
 }
 
 @media (prefers-color-scheme: dark) {
@@ -78,6 +79,7 @@ body {
 /* ===== Background Patterns ===== */
 .bg-grid-pattern {
   background-image: 
+    
     linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
   background-size: 20px 20px;
@@ -85,6 +87,7 @@ body {
 
 /* ===== Animations ===== */
 /* Improved typewriter effect */
+
 .typewriter-effect {
   overflow: hidden;
   border-right: 0.15em solid var(--secondary);
@@ -105,7 +108,7 @@ body {
 @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: var(--secondary) }
-}
+} 
 
 /* Fade-in animation */
 .fade-in {

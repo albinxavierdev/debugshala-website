@@ -17,7 +17,7 @@ const HeroSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTextIndex((prevIndex) => (prevIndex + 1) % typeWriterTexts.length);
-    }, 4000); // Change every 4 seconds
+    }, 3000); // Change every 3 seconds
     
     return () => clearInterval(interval);
   }, [typeWriterTexts]);
