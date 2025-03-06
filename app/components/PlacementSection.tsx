@@ -1,58 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
-
-const TestimonialCard = ({ name, role, company, salary, videoId, thumbnail }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const videoRef = useRef(null);
-
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  return (
-    <div className="card overflow-hidden">
-      <div className="relative aspect-video rounded-lg overflow-hidden mb-4 bg-gray-200">
-        {!isPlaying ? (
-          <>
-            <div 
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${thumbnail})` }}
-            />
-            <button 
-              onClick={togglePlay}
-              className="absolute inset-0 flex items-center justify-center"
-            >
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-[var(--secondary)] text-white">
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-            </button>
-          </>
-        ) : (
-          <video 
-            ref={videoRef} 
-            src={`https://www.youtube.com/embed/${videoId}`} 
-            controls 
-            className="w-full h-full"
-            onPause={() => setIsPlaying(false)}
-          />
-        )}
-      </div>
-      <h3 className="font-bold text-xl mb-1">{name}</h3>
-      <p className="text-gray-600 mb-2">{role} at {company}</p>
-      <p className="text-[var(--primary)] font-semibold">Package: {salary}</p>
-    </div>
-  );
-};
+import { useEffect } from 'react';
 
 const PlacementSection = () => {
   // Instagram posts script loading
@@ -83,39 +31,31 @@ const PlacementSection = () => {
     };
   }, []);
 
-  // Example testimonials - replace with actual data
-  const testimonials = [
+  // YouTube shorts details
+  const youtubeShorts = [
     {
-      name: "Rahul Sharma",
-      role: "Frontend Developer",
-      company: "Microsoft",
-      salary: "₹18 LPA",
-      videoId: "example1",
-      thumbnail: "/images/placeholder.svg"
+      id: "CDGQkEQOyhY",
+      title: "Success Story: Web Development"
     },
     {
-      name: "Priya Patel",
-      role: "Data Scientist",
-      company: "Amazon",
-      salary: "₹22 LPA",
-      videoId: "example2",
-      thumbnail: "/images/placeholder.svg"
+      id: "7vVHNrU80Eg",
+      title: "Success Story: Data Science"
     },
     {
-      name: "Arjun Mehta",
-      role: "Full Stack Developer",
-      company: "Flipkart",
-      salary: "₹16 LPA",
-      videoId: "example3",
-      thumbnail: "/images/placeholder.svg"
+      id: "_QYcA4NNdZk",
+      title: "Success Story: Full Stack Developer"
     },
     {
-      name: "Neha Gupta",
-      role: "ML Engineer",
-      company: "Google",
-      salary: "₹25 LPA",
-      videoId: "example4",
-      thumbnail: "/images/placeholder.svg"
+      id: "XzSRJoRRPOQ",
+      title: "Success Story: React Development"
+    },
+    {
+      id: "jtnqF5WOIH0",
+      title: "Success Story: Cloud Engineer"
+    },
+    {
+      id: "BxrD6k2is0M",
+      title: "Success Story: AI/ML Engineer"
     }
   ];
 
@@ -128,86 +68,53 @@ const PlacementSection = () => {
         </p>
 
         {/* Video Testimonials Section */}
-        <div className="mb-12">
-          <h3 className="text-xl font-bold mb-6 text-center">Latest Student Testimonials</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
-            {/* YouTube Video Embeds */}
-            <div style={{ marginTop: "20px", textAlign: "center" }}>
-              <iframe 
-                width="100%" 
-                height="500px" 
-                src="https://youtube.com/embed/CDGQkEQOyhY" 
-                title="YouTube Testimonial" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen>
-              </iframe>
-            </div>
-
-            <div style={{ marginTop: "20px", textAlign: "center" }}>
-              <iframe 
-                width="100%" 
-                height="500px" 
-                src="https://youtube.com/embed/7vVHNrU80Eg?si=Q8SBwxXc-W11nBJV" 
-                title="YouTube Testimonial" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen>
-              </iframe>
-            </div>
-
-            <div style={{ marginTop: "20px", textAlign: "center" }}>
-              <iframe 
-                width="100%" 
-                height="500px" 
-                src="https://youtube.com/embed/_QYcA4NNdZk?si=GCExMwHz9wtSw8fC" 
-                title="YouTube Testimonial" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen>
-              </iframe>
-            </div>
-          </div>
-        </div>
-
-        {/* Testimonial Cards Section */}
-        <div className="mt-16">
-          <h3 className="text-xl font-bold mb-8 text-center">Placement Testimonials</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard key={index} {...testimonial} />
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold mb-8 text-center">Student Testimonials</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {youtubeShorts.map((video, index) => (
+              <div key={index} className="youtube-shorts-card">
+                <iframe 
+                  className="rounded-xl shadow-lg w-full aspect-[9/16]"
+                  src={`https://youtube.com/embed/${video.id}`}
+                  title={video.title}
+                  frameBorder="0" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowFullScreen>
+                </iframe>
+                <h4 className="font-medium text-lg mt-3 text-center">{video.title}</h4>
+              </div>
             ))}
           </div>
         </div>
 
-        <div className="mt-12 bg-gradient-to-r from-[var(--primary)] to-[var(--dark-bg)] rounded-xl p-8 text-white">
+        <div className="mt-12 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-xl p-8 text-white shadow-lg">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-6 md:mb-0 md:mr-8">
-              <h3 className="text-2xl font-bold mb-3 text-black">Our Placement Record</h3>
-              <p className="text-gray-600 mb-4">
+              <h3 className="text-2xl font-bold mb-3 text-white">Our Placement Record</h3>
+              <p className="text-white/80 mb-4">
                 We&apos;ve helped hundreds of students land their dream jobs at top tech companies. 
                 Our placement assistance program ensures you&apos;re prepared for the interview process.
               </p>
-              <button className="bg-white text-[var(--primary)] px-6 py-3 rounded-md font-bold hover:bg-opacity-90 transition-all">
+              <button className="bg-white text-[var(--primary)] px-6 py-3 rounded-md font-bold hover:bg-opacity-90 transition-all shadow-md">
                 View All Placements
               </button>
             </div>
             <div className="grid grid-cols-2 gap-4">
-              <div className="text-center p-4 bg-white/10 rounded-lg">
-                <h4 className="text-3xl font-bold text-[var(--secondary)]">500+</h4>
-                <p className="text-gray-700">Students Placed</p>
+              <div className="text-center p-4 bg-white/10 backdrop-blur-sm rounded-lg shadow-inner">
+                <h4 className="text-3xl font-bold text-white">500+</h4>
+                <p className="text-white/80">Students Placed</p>
               </div>
-              <div className="text-center p-4 bg-white/10 rounded-lg">
-                <h4 className="text-3xl font-bold text-[var(--secondary)]">50+</h4>
-                <p className="text-gray-700">Hiring Partners</p>
+              <div className="text-center p-4 bg-white/10 backdrop-blur-sm rounded-lg shadow-inner">
+                <h4 className="text-3xl font-bold text-white">50+</h4>
+                <p className="text-white/80">Hiring Partners</p>
               </div>
-              <div className="text-center p-4 bg-white/10 rounded-lg">
-                <h4 className="text-3xl font-bold text-[var(--secondary)]">25 LPA</h4>
-                <p className="text-gray-700">Highest Package</p>
+              <div className="text-center p-4 bg-white/10 backdrop-blur-sm rounded-lg shadow-inner">
+                <h4 className="text-3xl font-bold text-white">₹24L</h4>
+                <p className="text-white/80">Highest Package</p>
               </div>
-              <div className="text-center p-4 bg-white/10 rounded-lg">
-                <h4 className="text-3xl font-bold text-[var(--secondary)]">12 LPA</h4>
-                <p className="text-gray-700">Average Package</p>
+              <div className="text-center p-4 bg-white/10 backdrop-blur-sm rounded-lg shadow-inner">
+                <h4 className="text-3xl font-bold text-white">₹12L</h4>
+                <p className="text-white/80">Average Package</p>
               </div>
             </div>
           </div>

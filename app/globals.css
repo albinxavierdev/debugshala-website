@@ -166,6 +166,132 @@ body {
   @apply text-white;
 }
 
+/* YouTube card styling */
+.youtube-card {
+  @apply rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl transform hover:scale-[1.01];
+}
+
+.youtube-card iframe {
+  @apply border-0 rounded-xl;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Social Media Embeds ===== */
+.linkedin-post-card {
+  max-width: 550px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.linkedin-post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.linkedin-embed {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.3s ease;
+  max-height: 620px;
+  overflow-y: auto;
+}
+
+.linkedin-embed iframe {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+/* Smaller LinkedIn cards for 3-column grid */
+.linkedin-post-card-small {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+.linkedin-post-card-small:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.linkedin-embed-small {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+  min-height: 400px;
+}
+
+.linkedin-embed-small iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.01);
+  transform-origin: top center;
+}
+
+/* LinkedIn cards for workshops and events */
+.linkedin-workshop-card {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.linkedin-workshop-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.linkedin-embed-workshop {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+  min-height: 450px;
+}
+
+.linkedin-embed-workshop iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.05);
+  transform-origin: top center;
+}
+
+/* Customize scrollbar for LinkedIn embeds */
+.linkedin-embed::-webkit-scrollbar {
+  width: 6px;
+}
+
+.linkedin-embed::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.linkedin-embed::-webkit-scrollbar-thumb {
+  background: #bbbbbb;
+  border-radius: 10px;
+}
+
+.linkedin-embed::-webkit-scrollbar-thumb:hover {
+  background: #999999;
+}
+
 /* ===== Typography Helpers ===== */
 .text-gradient {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)];
