@@ -216,7 +216,7 @@ const SpiderWebChart: React.FC<SpiderWebChartProps> = ({ skills, title, descript
   };
 
   return (
-    <div className="relative w-full" style={{ minHeight: '400px' }}>
+    <div id='about' className="relative w-full" style={{ minHeight: '400px' }}>
       {title && <h3 className="text-xl font-bold mb-2 text-center">{title}</h3>}
       {description && <p className="text-sm mb-4 text-center">{description}</p>}
       <canvas 

@@ -2,10 +2,15 @@
 
 import { useState, useEffect } from 'react';
 
-const CommunityPost = ({ permalink }) => {
+// Add TypeScript interface for component props
+interface CommunityPostProps {
+  permalink: string;
+}
+
+const CommunityPost = ({ permalink }: CommunityPostProps) => {
   return (
     <div className="instagram-post-container rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300">
-      <blockquote className="instagram-media" dataInstgrmCaptioned dataInstgrmPermalink={permalink} dataInstgrmVersion="14" style={{ background: "#FFF", border: 0, borderRadius: "12px", boxShadow: "none", margin: 0, maxWidth: "100%", minWidth: "326px", padding: 0, width: "100%" }}>
+      <blockquote className="instagram-media" data-instgrm-captioned data-instgrm-permalink={permalink} data-instgrm-version="14" style={{ background: "#FFF", border: 0, borderRadius: "12px", boxShadow: "none", margin: 0, maxWidth: "100%", minWidth: "326px", padding: 0, width: "100%" }}>
         <div style={{ padding: "16px" }}>
           <a href={permalink} style={{ background: "#FFFFFF", lineHeight: 0, padding: 0, textAlign: "center", textDecoration: "none", width: "100%" }} target="_blank" rel="noopener noreferrer">
             <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
@@ -67,28 +72,28 @@ const CommunitySection = () => {
   // Array of Instagram post permalinks
   const posts = [
     "https://www.instagram.com/p/C296PX4MYz_/?utm_source=ig_embed&amp;utm_campaign=loading",
-    "https://www.instagram.com/reel/C5eBDVCNzVW/?utm_source=ig_embed&amp;utm_campaign=loading", 
-    "https://www.instagram.com/reel/C5Yd_xUNnUB/?utm_source=ig_embed&amp;utm_campaign=loading", 
-    "https://www.instagram.com/reel/C5FRRzZtDYz/?utm_source=ig_embed&amp;utm_campaign=loading"  
+    "https://www.instagram.com/p/DGxwW4tTb0C/?utm_source=ig_embed&amp;utm_campaign=loading", 
+    "https://www.instagram.com/p/DGqK9nDTmuS/?utm_source=ig_embed&amp;utm_campaign=loading", 
+    "https://www.instagram.com/p/DGhc8sXyGtp/?utm_source=ig_embed&amp;utm_campaign=loading"  
   ];
 
   // Categorized posts for filtering
   const categorizedPosts = {
     all: [
       "https://www.instagram.com/p/C296PX4MYz_/?utm_source=ig_embed&amp;utm_campaign=loading",
-      "https://www.instagram.com/reel/C5eBDVCNzVW/?utm_source=ig_embed&amp;utm_campaign=loading",
-      "https://www.instagram.com/reel/C5Yd_xUNnUB/?utm_source=ig_embed&amp;utm_campaign=loading",
-      "https://www.instagram.com/reel/C5FRRzZtDYz/?utm_source=ig_embed&amp;utm_campaign=loading"
+      "https://www.instagram.com/p/DGxwW4tTb0C/?utm_source=ig_embed&amp;utm_campaign=loading",
+      "https://www.instagram.com/p/DGqK9nDTmuS/?utm_source=ig_embed&amp;utm_campaign=loading",
+      "https://www.instagram.com/p/DGhc8sXyGtp/?utm_source=ig_embed&amp;utm_campaign=loading"
     ],
     learning: [
       "https://www.instagram.com/p/C296PX4MYz_/?utm_source=ig_embed&amp;utm_campaign=loading",
-      "https://www.instagram.com/reel/C5eBDVCNzVW/?utm_source=ig_embed&amp;utm_campaign=loading"
+      "https://www.instagram.com/p/DGxwW4tTb0C/?utm_source=ig_embed&amp;utm_campaign=loading"
     ],
     bts: [
-      "https://www.instagram.com/reel/C5Yd_xUNnUB/?utm_source=ig_embed&amp;utm_campaign=loading"
+      "https://www.instagram.com/p/DGqK9nDTmuS/?utm_source=ig_embed&amp;utm_campaign=loading"
     ],
     achievements: [
-      "https://www.instagram.com/reel/C5FRRzZtDYz/?utm_source=ig_embed&amp;utm_campaign=loading"
+      "https://www.instagram.com/p/DGhc8sXyGtp/?utm_source=ig_embed&amp;utm_campaign=loading"
     ]
   };
 
@@ -148,7 +153,8 @@ const CommunitySection = () => {
           >
             All
           </button>
-          <button
+
+          {/* <button
             className={`px-4 py-2 rounded-full border transition-all duration-300 ${
               activeFilter === 'team building' 
                 ? 'bg-[var(--primary)] text-white border-[var(--primary)]' 
@@ -157,8 +163,9 @@ const CommunitySection = () => {
             onClick={() => setActiveFilter('team building')}
           >
             Team Building
-          </button>
-          <button
+          </button> */}
+
+          {/* <button
             className={`px-4 py-2 rounded-full border transition-all duration-300 ${
               activeFilter === 'celebrations' 
                 ? 'bg-[var(--primary)] text-white border-[var(--primary)]' 
@@ -167,7 +174,8 @@ const CommunitySection = () => {
             onClick={() => setActiveFilter('celebrations')}
           >
             Celebrations
-          </button>
+          </button> */}
+          
           <button
             className={`px-4 py-2 rounded-full border transition-all duration-300 ${
               activeFilter === 'learning' 

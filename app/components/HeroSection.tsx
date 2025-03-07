@@ -42,7 +42,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="pt-28 pb-20 relative overflow-hidden gradient-bg">
+    <section id="hero" className="pt-28 pb-20 relative overflow-hidden gradient-bg">
       <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
       <div className="relative responsive-container z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">

@@ -87,10 +87,10 @@ const PlacementSection = () => {
           </div>
         </div>
 
-        <div className="mt-12 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-xl p-8 text-white shadow-lg">
+        <div id='about' className="mt-12 bg-gradient-to-r from-[var(--primary)] to-[var(--secondary)] rounded-xl p-8 text-white shadow-lg">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="mb-6 md:mb-0 md:mr-8">
-              <h3 className="text-2xl font-bold mb-3 text-white">Our Placement Record</h3>
+              <h3 className="text-2xl font-bold mb-3 text-white" >Our Placement Record</h3>
               <p className="text-white/80 mb-4">
                 We&apos;ve helped hundreds of students land their dream jobs at top tech companies. 
                 Our placement assistance program ensures you&apos;re prepared for the interview process.

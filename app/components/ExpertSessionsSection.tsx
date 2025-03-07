@@ -2,7 +2,14 @@
 
 import { useState } from 'react';
 
-const ExpertCard = ({ name, linkedInPostUrl, linkedInEmbedSrc, category }) => {
+interface ExpertCardProps {
+  name: string;
+  linkedInPostUrl: string;
+  linkedInEmbedSrc: string;
+  category: string;
+}
+
+const ExpertCard = ({ name, linkedInPostUrl, linkedInEmbedSrc, category }: ExpertCardProps) => {
   return (
     <div className="linkedin-post-card-small shadow-md hover:shadow-lg transition-all duration-300 rounded-lg overflow-hidden h-full flex flex-col">
       <div className="linkedin-embed-small relative flex-grow">
@@ -66,6 +73,9 @@ const ExpertSessionsSection = () => {
     ? expertSessions 
     : expertSessions.filter(session => session.category === filter);
 
+  // Limit to 3 sessions
+  const limitedSessions = filteredSessions.slice(0, 3);
+
   return (
     <section id="expert-sessions" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4 md:px-8">
@@ -123,7 +133,7 @@ const ExpertSessionsSection = () => {
 
         {/* 3-column grid layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredSessions.map((session, index) => (
+          {limitedSessions.map((session, index) => (
             <ExpertCard 
               key={index} 
               {...session} 
